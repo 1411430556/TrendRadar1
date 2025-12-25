@@ -78,8 +78,10 @@ ai
 飞船
 航空
 
+电竞
 英雄联盟
 Faker
+T1
 LCK
 LPL
 
