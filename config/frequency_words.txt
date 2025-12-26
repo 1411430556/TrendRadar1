@@ -20,52 +20,15 @@ C罗
 宇树
 王兴兴
 
-黑神话
-冯骥
-
 影之刃零
 梁其伟
 
-字节
+字抖音
 bytedance
 张一鸣
 
 特斯拉
 马斯克
-
-微软
-Microsoft
-
-英伟达
-NVIDIA
-黄仁勋
-
-AMD
-
-谷歌
-google
-gemini
-deepmind
-
-chatgpt
-openai
-sora
-
-claude
-Anthropic
-
-iphone
-ipad
-mac
-ios
-
-ai
-!gai
-人工智能
-
-自动驾驶
-
-机器人
 
 美国
 日本
@@ -82,6 +45,7 @@ ai
 
 电竞
 英雄联盟
+LOL
 Faker
 T1
 LCK
