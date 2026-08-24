@@ -141,10 +141,6 @@ platforms:
     name: "ProductHunt"
   - id: "coolapk"
     name: "酷安"
-  - id: "36kr-quick"
-    name: "36氪 快讯"
-  - id: "36kr-renqi"
-    name: "36氪 人气榜"
   - id: "freebuf"
     name: "Freebuf 网络安全"
 
