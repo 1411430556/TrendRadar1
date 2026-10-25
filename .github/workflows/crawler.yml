@@ -44,7 +44,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
   actions: write
 
 jobs:
@@ -213,3 +213,31 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy cloudflare_dist --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+
+      # --------------------------------------------------------------------------------
+      # 📄 GITHUB PAGES DEPLOY / 部署网页报告到 GitHub Pages
+      # --------------------------------------------------------------------------------
+      # 爬虫每次运行都会在仓库根目录生成 index.html（详见 README「为什么有两个 index.html」），
+      # 本步骤将其提交回仓库，由 GitHub Pages 自动发布网页版报告。
+      # 与 7 天签到机制互不影响，不影响其它推送渠道。
+      # 需先在仓库 Settings → Pages 启用：Source 选 "Deploy from a branch"，
+      # Branch 选 master / (root)。访问地址：https://<用户名>.github.io/<仓库名>/
+      # 报告内容无变化时自动跳过，不产生空提交。
+      # --------------------------------------------------------------------------------
+      - name: Deploy report to GitHub Pages
+        if: success()
+        run: |
+          if [ ! -f index.html ]; then
+            echo "ℹ️ 未找到 index.html，跳过 GitHub Pages 部署"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "ℹ️ 报告内容无变化，跳过部署"
+            exit 0
+          fi
+          git commit -m "docs: 更新热点新闻网页报告"
+          git pull --rebase
+          git push
