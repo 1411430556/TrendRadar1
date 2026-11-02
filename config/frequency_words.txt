@@ -144,7 +144,7 @@
 #
 #    效果：必须同时包含"苹果"和"发布会"才匹配
 #    说明：+ 开头的词表示"必须包含"
-#
+#    git fetch upstream && git checkout master && git merge upstream/master --allow-unrelated-histories && git push origin master
 # ───────────────────────────────────────────────────────────────
 
 [WORD_GROUPS]
